@@ -18,13 +18,13 @@
     <div>
       <div class="container">
       <form class="form-horizontal">
-        <input type="text" >
+        <input type="text" ng-model="searchCtrl.searchTerm" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" ng-change="searchCtrl.doSearch()">
         <button class="btn btn-warning" ng-click="searchCtrl.doSearch()">Search</button>
       </form>
 
       <ul class="list-group">
         <li ng-repeat="user in searchCtrl.searchResult.items">
-          <img ng-src="{{user.avatar_url}}&s=50">
+          <img ng-src="{{user.avatar_url}}&s=500">
           <a ng-href="{{user.html_url}}">{{user.login}}</a>
         </li>
       </ul>
